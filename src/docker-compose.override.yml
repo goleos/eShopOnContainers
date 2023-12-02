@@ -101,6 +101,27 @@ services:
       - "5101:80"
       - "9101:81"
 
+  offers-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=${ESHOP_AZURE_CATALOG_DB:-Server=sqldata;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=true}
+      - PicBaseUrl=${ESHOP_STORAGE_CATALOG_URL}
+      - EventBusConnection=${ESHOP_AZURE_SERVICE_BUS:-rabbitmq}
+      - EventBusUserName=${ESHOP_SERVICE_BUS_USERNAME}
+      - EventBusPassword=${ESHOP_SERVICE_BUS_PASSWORD}
+      - AzureStorageAccountName=${ESHOP_AZURE_STORAGE_CATALOG_NAME}
+      - AzureStorageAccountKey=${ESHOP_AZURE_STORAGE_CATALOG_KEY}
+      - UseCustomizationData=True
+      - AzureServiceBusEnabled=False
+      - AzureStorageEnabled=False
+      - ApplicationInsights__InstrumentationKey=${INSTRUMENTATION_KEY}
+      - OrchestratorType=${ORCHESTRATOR_TYPE}
+      - GRPC_PORT=81
+      - PORT=80
+      - PATH_BASE=/catalog-api
+    ports:
+      - "52101:80"
+
   ordering-api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

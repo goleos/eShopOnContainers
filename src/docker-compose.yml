@@ -25,6 +25,12 @@ services:
     depends_on:
       - sqldata
 
+  offers-api:
+    image: eshop/offersapi
+    build:
+      context: .
+      dockerfile: Services/Offers/Offers.API/Dockerfile
+
   basket-api:
     image: ${REGISTRY:-eshop}/basket.api:${PLATFORM:-linux}-${TAG:-latest}
     build:
