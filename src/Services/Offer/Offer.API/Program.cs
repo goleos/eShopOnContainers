@@ -28,17 +28,6 @@ namespace Offer.API
 
             app.UseAuthorization();
 
-            //        app.MapControllerRoute(
-            //name: "WeatherForecastRoute",
-            //pattern: "api/weather",
-            //defaults: new { controller = "WeatherForecast", action = "Get" }
-            //);
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
             app.MapGet("api/hi", async context =>
             {
                 await context.Response.WriteAsync("Hello");
