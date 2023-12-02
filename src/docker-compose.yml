@@ -26,7 +26,7 @@ services:
       - sqldata
 
   offers-api:
-    image: eshop/offersapi
+    # image: eshop/offersapi
     build:
       context: .
       dockerfile: Services/Offers/Offers.API/Dockerfile

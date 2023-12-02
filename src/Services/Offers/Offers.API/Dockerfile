@@ -23,6 +23,7 @@ COPY "Services/Basket/Basket.API/Basket.API.csproj" "Services/Basket/Basket.API/
 COPY "Services/Basket/Basket.FunctionalTests/Basket.FunctionalTests.csproj" "Services/Basket/Basket.FunctionalTests/Basket.FunctionalTests.csproj"
 COPY "Services/Basket/Basket.UnitTests/Basket.UnitTests.csproj" "Services/Basket/Basket.UnitTests/Basket.UnitTests.csproj"
 COPY "Services/Catalog/Catalog.API/Catalog.API.csproj" "Services/Catalog/Catalog.API/Catalog.API.csproj"
+COPY "Services/Offers/Offers.API/Offers.API.csproj" "Services/Offers/Offers.API/Offers.API.csproj"
 COPY "Services/Catalog/Catalog.FunctionalTests/Catalog.FunctionalTests.csproj" "Services/Catalog/Catalog.FunctionalTests/Catalog.FunctionalTests.csproj"
 COPY "Services/Catalog/Catalog.UnitTests/Catalog.UnitTests.csproj" "Services/Catalog/Catalog.UnitTests/Catalog.UnitTests.csproj"
 COPY "Services/Identity/Identity.API/Identity.API.csproj" "Services/Identity/Identity.API/Identity.API.csproj"
@@ -48,20 +49,20 @@ COPY "NuGet.config" "NuGet.config"
 RUN dotnet restore "eShopOnContainers-ServicesAndWebApps.sln"
 
 COPY . .
-WORKDIR /src/Services/Catalog/Catalog.API
+WORKDIR /src/Services/Offers/Offers.API
 RUN dotnet publish --no-restore -c Release -o /app
 
-FROM build as unittest
-WORKDIR /src/Services/Catalog/Catalog.UnitTests
-
-FROM build as functionaltest
-WORKDIR /src/Services/Catalog/Catalog.FunctionalTests
+#FROM build as unittest
+#WORKDIR /src/Services/Offers/Offers.UnitTests
+#
+#FROM build as functionaltest
+#WORKDIR /src/Services/Offers/Offers.FunctionalTests
 
 FROM build AS publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-COPY --from=build /src/Services/Catalog/Catalog.API/Proto /app/Proto
-COPY --from=build /src/Services/Catalog/Catalog.API/eshop.pfx .
-ENTRYPOINT ["dotnet", "Catalog.API.dll"]
+#COPY --from=build /src/Services/Offers/Offers.API/Proto /app/Proto
+#COPY --from=build /src/Services/Offers/Offers.API/eshop.pfx .
+ENTRYPOINT ["dotnet", "Offers.API.dll"]
