@@ -7,7 +7,7 @@ namespace Offer.API.Controllers
     public class OffersController : ControllerBase
     {
 
-        private readonly OfferItem offer1 = new OfferItem { CatalogItemID = 3, Id = 1, OfferPrice = 4.50M };
+        private readonly OfferItem offer1 = new OfferItem { CatalogItemID = 2, Id = 1, OfferPrice = 6.50M };
         private readonly OfferItem offer2 = new OfferItem { CatalogItemID = 4, Id = 2, OfferPrice = 6.50M };
 
         private List<OfferItem> OffersArray = new List<OfferItem>();
