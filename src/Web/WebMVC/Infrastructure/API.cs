@@ -82,4 +82,12 @@ public static class API
             return $"{baseUri}catalogTypes";
         }
     }
+
+    public static class Offer
+    {
+        public static string GetAllOffers(string baseUri)
+        {
+            return $"{baseUri}/offers";
+        }
+    }
 }

@@ -142,6 +142,9 @@ static class ServiceCollectionExtensions
                 .AddHttpMessageHandler<HttpClientRequestIdDelegatingHandler>()
                 .AddDevspacesSupport();
 
+        services.AddHttpClient<IOfferService, OfferService>()
+                .AddDevspacesSupport();
+
 
         //add custom application services
         services.AddTransient<IIdentityParser<ApplicationUser>, IdentityParser>();
