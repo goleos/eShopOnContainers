@@ -152,4 +152,12 @@
             content: '$';
         }
     }
+
+    &-offer-price {
+        color: green;
+    }
+
+    &-old {
+        text-decoration: line-through;
+    }
 }

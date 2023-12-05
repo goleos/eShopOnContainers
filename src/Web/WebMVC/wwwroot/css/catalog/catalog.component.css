@@ -148,3 +148,10 @@
   content: '$';
 }
 
+.esh-catalog-offer-price {
+    color: green;
+}
+
+.esh-catalog-price-old {
+    text-decoration: line-through;
+}
