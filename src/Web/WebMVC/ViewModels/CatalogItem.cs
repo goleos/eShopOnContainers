@@ -6,6 +6,7 @@ public record CatalogItem
     public string Name { get; init; }
     public string Description { get; init; }
     public decimal Price { get; init; }
+    public decimal OfferPrice { get; init; }
     public string PictureUri { get; init; }
     public int CatalogBrandId { get; init; }
     public string CatalogBrand { get; init; }
