@@ -1,7 +1,7 @@
 # Launch the app
-1. Get the ip address of computer with `ipconfig` (one that starts with 192)
-   Set up the variables `ESHOP_EXTERNAL_DNS_NAME_OR_IP` and `ESHOP_STORAGE_CATALOG_URL`
-2. Use the following command to run:
+Set up the variables `ESHOP_EXTERNAL_DNS_NAME_OR_IP` and `ESHOP_STORAGE_CATALOG_URL` if needed.
+
+Either use Visual Studio or use the following command to run:
    ```
    docker-compose -f docker-compose.yml -f docker-compose.override.yml up
    ```
